@@ -1,0 +1,80 @@
+/*set css for table by select table by # - id (element selector)*/
+#main-table {
+    table-layout: auto;
+    padding-left: 10em;
+    border-style: solid;
+
+}
+
+/*Attribute seclector lang attribute of div tag*/
+div[lang="en"] {
+    color: blue;
+    font-size: 20px;
+}
+
+/*Pseudo-element selectors*/
+#type-X::placeholder {
+    padding-left: 5px;
+    color: rgb(179, 72, 170);
+}
+
+/*descendant combinator*/
+td button {
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #000;
+      cursor: pointer;
+      border: 3px solid;
+      padding: 0.25em 0.5em;
+      box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;   
+}
+
+input {
+    padding: 5px;
+}
+td {
+    background-color: aquamarine;
+    border: solid;
+    text-align: center;
+}
+
+#resetButton {
+    size: 100%;
+}
+@media screen and (min-width: 1800px) {
+    article {
+      padding: 1rem 3rem;
+    }
+  }
+
+div a {
+    background-color: aquamarine;
+    padding-right: 0%;
+}
+tr {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+
+.vietnam {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.vietnam #imageVN {
+    width: 54em;
+    height: 520px;
+}
+
+#header {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+

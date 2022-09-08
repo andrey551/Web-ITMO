@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/table.css">
+        <link rel="shortcut icon" href="#" />
+</head>
+<body>
+
+    <table id="main-table" width = "100%" onload="loadCanvas()">
+        <tr >
+            <td id="header">
+                <header style="padding-bottom:50px;">
+                    <a class="header-info">Full name: Dau Cong Tuan Anh</a>
+                    <br>
+                    <a class="header-info">Group: P32151</a>
+                    <br>
+                    <a class="header-info">Option: 1403</a>
+                </header>
+            </td>
+        </tr>
+        <tr id ="draw">
+            <td>
+                <section onload="loadCanvas()">
+                    <h2>
+                            <span class="content-section__header__text">
+                                Graphic
+                            </span>
+                    </h2>
+                        <canvas id ="canvas" class="graph-canvas" width="449" height="449"   >Chart Interactive Area</canvas>
+                    </div>
+                </section>
+            </td>
+            <td class ="vietnam">
+                <img id = "imageVN" src="image/VietNam.png">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form id = "send-data-form" action="../Process/process.php" method="get">
+                    <input type="hidden" name="x" id = "x-value">
+                    <input type="hidden" name="y" id = "y-value">
+                    <input type="hidden" name="r" id = "r-value">
+                    <input type="submit" >
+                </form>
+            </td>
+            <td>
+                <a id="message"></a>
+            </td>
+            <td>
+                <button id = "resetButton" onclick="reset()">Reset</button>
+                
+            </td>
+            <td>
+                <div ><a id = "clock"></a></div>
+            </td>
+        </tr>
+        <tr>
+            <td><div lang="en">X</div></td>
+            <td><div lang="en">Y</div></td>
+            <td><div lang="en">R</div></td>
+            <td><div lang="en">Result</div></td>
+        </tr>
+        <tr>
+            <td id="current-X">Current X selected:</td>
+            <td id="current-Y">Current Y selected:</td>
+            <td id="current-R">Current R selected:</td>
+            <td></td>
+        </tr>
+        <a id = "row-to-add"></a>
+        <tr>
+            <td>
+                <input id = "type-X" type="text" placeholder="Type X from -5 to 3" onchange="selectXOnAction()"/>
+            </td>
+            <td>
+                <label for="y:-4">-4</label>
+                <input class = "y-checkbox" id = "y:-4" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:-3">-3</label>
+                <input class = "y-checkbox" id = "y:-3" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:-2">-2</label>
+                <input class = "y-checkbox" id = "y:-2" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:-1">-1</label>
+                <input class = "y-checkbox" id = "y:-1" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:0">0</label>
+                <input class = "y-checkbox" id = "y:0" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:1">1</label>
+                <input class = "y-checkbox" id = "y:1" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:2">2</label>
+                <input class = "y-checkbox" id = "y:2" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:3">3</label>
+                <input class = "y-checkbox" id = "y:3" type="checkbox" onchange="typeYOnAction()"> 
+                <label for="y:4">4</label>
+                <input class = "y-checkbox" id = "y:4" type="checkbox" onchange="typeYOnAction()"> 
+
+            </td>
+            <td>
+                <button class = "R-button" value="1" onclick="clickROnAction(1)">1</button>
+                <button class = "R-button" value="2" onclick="clickROnAction(2)">2</button>
+                <button class = "R-button" value="3" onclick="clickROnAction(3)">3</button>
+                <button class = "R-button" value="4" onclick="clickROnAction(4)">4</button>
+                <button class = "R-button" value="5" onclick="clickROnAction(5)">5</button>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+    <br>
+    
+
+    <script src="js/Submit.js"></script>
+    <script src="js/clickROnAction.js"></script>
+    <script src="js/selectXOnAction.js"></script>
+    <script src="js/typeYOnAction.js"></script>
+    <script src="js/clock.js"></script>
+
+</body>
