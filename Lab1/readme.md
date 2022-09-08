@@ -1,6 +1,6 @@
 # WEB PROGRAMMING
 
-## Laborytory N.1
+## Laborytory No.1
 
 ### Professor: Письмак Алексей Евгеньевич
 ### Student: Dau Cong Tuan Anh
