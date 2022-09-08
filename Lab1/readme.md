@@ -27,4 +27,5 @@ In addition, the response must contain data about the current time and the scrip
 - The HTML page should have a "header" containing the student's full name, group number, and new option. When designing a header, you must explicitly set the font (fantasy), its color and size in the cascading style sheet.
 - Input element padding must be specified in pixels.
 - The page must contain a JavaScript script that validates the values ​​entered by the user in the form fields. Any invalid values ​​(such as letters in point coordinates or a negative radius) should be blocked.
-!(image)[https://github.com/andrey551/Web-ITMO/blob/main/Lab1/report/Picture1.jpeg]
+- 
+! (image)[https://github.com/andrey551/Web-ITMO/blob/main/Lab1/report/Picture1.jpeg]
