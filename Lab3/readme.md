@@ -35,15 +35,15 @@ Changing the radius should also initiate a redraw of the image.
 - A Session-scoped Managed Bean must be used to manage the list of results.
 - Managed beans must be configured using annotations.
 - Navigation rules between application pages must be specified in a separate configuration file.
-![image](https://github.com/andrey551/Web-ITMO/blob/main/Lab1/report/Picture1.jpg)
 ## Task
 <img src="https://github.com/andrey551/Web-ITMO/blob/main/Lab3/image/task.jpg" style="width:700px;"/>
 
 ## result:
 - Gate layout:
  <img src="https://github.com/andrey551/Web-ITMO/blob/main/Lab3/image/gate.jpg" style="width:700px;"/>
+ <br/>
  - Application layout:
 <img src="https://github.com/andrey551/Web-ITMO/blob/main/Lab3/image/main.jpg" style="width:700px;"/>
-
+ <br/>
 ##Conclusion :
 For this laboratory work, I learned many new, about JSF application , how to manage bean, the different between facelet and servlet, and template concept 
