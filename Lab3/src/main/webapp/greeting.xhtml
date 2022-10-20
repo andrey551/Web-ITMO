@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: @TAD
+  Date: 10/16/2022
+  Time: 2:29 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition>
+<h:head>
+    <title>Main</title>
+    <h:outputStylesheet library="css" name="mainStyle.css"/>
+    <h:outputStylesheet library="css" name="headerStyle.css"/>
+    <h:outputStylesheet library="css" name="layoutStyle.css"/>
+</h:head>
+
+<h:body>
+    <ui:insert name="header">
+        <ui:include src="WEB-INF/templates/header.xhtml"></ui:include>
+    </ui:insert>
+    <div class="container">
+        <div class="left-side">
+            <div class="canvas-image">
+                <canvas img="" class="graph-canvas" width="449" height="449"   >Chart Interactive Area</canvas>
+            </div>
+            <div class="data-form">
+                <h:form>
+                    <div class="x-value">
+                        X:
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> -3
+                        </div>
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> -2
+                        </div>
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> -1
+                        </div>
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> 0
+                        </div>
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> 1
+                        </div>
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> 2
+                        </div>
+                        <div class="x-element">
+                            <h:selectBooleanCheckbox onchange="booleanOnClick()" class="checkbox-value"/> 3
+                        </div>
+                    </div>
+                    <div class="message">
+                        <a class="output-message"/>
+                    </div>
+
+                    <div class="y-value">
+                        <div class="y-element">
+                            Y:   <h:inputText onchange="onTyping()" class="input-value"/>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <a class="output-message"/>
+                    </div>
+                    <div class="r-value">
+                        R:
+                        <div class="r-element">
+                            <h:commandLink onclick="clickLink(1)" value="1">
+                                <f:ajax render="@none"/>
+                            </h:commandLink>
+                        </div>
+                        <div class="r-element">
+                            <h:commandLink onclick="clickLink(2)" value="2">
+                                <f:ajax render="@none"/>
+                            </h:commandLink>
+                        </div>
+                        <div class="r-element">
+                            <h:commandLink onclick="clickLink(3)" value="3">
+                                <f:ajax render="@none"/>
+                            </h:commandLink>
+                        </div>
+                        <div class="r-element">
+                            <h:commandLink onclick="clickLink(4)" value="4">
+                                <f:ajax render="@none"/>
+                            </h:commandLink>
+                        </div>
+                        <div class="r-element">
+                            <h:commandLink onclick="clickLink(5)" value="5">
+                                <f:ajax render="@none"/>
+                            </h:commandLink>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <a class="output-message"/>
+                    </div>
+                </h:form>
+            </div>
+            <h:form id="formToSend">
+                <h:inputHidden id="xToSend" value="#{helloBean.x}" required="true"/> <br/>
+                <h:inputHidden id="yToSend" value="#{helloBean.y}" required="true"/> <br/>
+                <h:inputHidden id="rToSend" value="#{helloBean.r}" required="true"/> <br/>
+                <h:commandButton class="submit-btn" value="Send" actionListener="#{helloBean.execute()}" /> <br/>
+            </h:form>
+        </div>
+        <div class="right-side">
+            <div class="table">
+                <h:dataTable value="#{helloBean.storage}" var="point">
+                    <h:column>
+                        <f:facet name="header">X</f:facet>
+                        <h:outputText class="xRes" value="#{point.x}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Y</f:facet>
+                        <h:outputText class="yRes" value="#{point.y}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">R</f:facet>
+                        <h:outputText value="#{point.r}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Result</f:facet>
+                        <h:outputText class="resultRes" value="#{point.result}"/>
+                    </h:column>
+                </h:dataTable>
+            </div>
+            <div class="footer">
+                <h:link outcome="goToGate">Go To Gate Page</h:link>
+            </div>
+        </div>
+    </div>
+    <h:outputScript library="js" name="mainActions.js"/>
+    <h:outputScript library="js" name="validateX.js"/>
+    <h:outputScript library="js" name="validateY.js"/>
+    <h:outputScript library="js" name="validateR.js"/>
+
+
+</h:body>
+</ui:composition>
+</html>

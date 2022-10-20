@@ -1,0 +1,40 @@
+.data-form {
+    margin-top: 30px;
+    margin-left:100px;
+}
+
+.x-value {
+    display: flex;
+}
+
+.r-value {
+    display: flex;
+}
+.r-element {
+    margin-left: 30px;
+}
+
+.x-element {
+    margin-left: 30px;
+}
+
+.submit-btn {
+    margin-left: 10em;
+    background: darkslategrey;
+    padding: 5px 10px 5px 10px;
+}
+
+.canvas-image {
+    margin-left: 100px;
+}
+
+.input-value {
+    background: rgba(72, 122, 180, .7);
+}
+.checkbox-value {
+    background: aquamarine;
+}
+
+.output-message {
+    color:red;
+}

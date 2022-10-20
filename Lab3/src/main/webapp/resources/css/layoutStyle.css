@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+* {
+    margin:0;
+    padding: 0;
+    font-family:'Anonymous Pro', monospace;
+    color:aliceblue;
+}
+.body{
+    height: 23em;
+    padding-left: 35em;
+    padding-top: 12em;
+}
+
+body{
+    background-color: rgba(72, 122, 180, .7);
+}
+
+.container {
+    display: flex;
+}
+
+.table {
+    height: 33em;
+}
+
+.right-side {
+    padding: 20px 0 0 200px;
+    display: inline-block;
+}
+.footer {
+    margin-left: 30em;
+:focus (
+    color: red;
+)
+}
+
+th, td {
+    padding: 30px 60px 20px 0;
+}
