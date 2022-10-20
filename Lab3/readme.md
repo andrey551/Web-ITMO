@@ -44,6 +44,6 @@ Changing the radius should also initiate a redraw of the image.
  <br/>
 - Application layout:
 <img src="https://github.com/andrey551/Web-ITMO/blob/main/Lab3/image/main.jpg" style="width:900px;"/>
- <br/>
-## Conclusion :
+<br/>
+ ## Conclusion :
 For this laboratory work, I learned many new, about JSF application , how to manage bean, the different between facelet and servlet, and template concept 
