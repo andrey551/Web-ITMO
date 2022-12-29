@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-
 import './tableStyle.css'
 import { Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
@@ -54,8 +53,13 @@ const RenderResult = (result) => {
             <img src={require('../../../assets/result/hit.png')} style={{width: 40}} />
         )
     }
+    if( result.value === "Miss") {
+        return (
+          <img src={require('../../../assets/result/miss.png')} style={{width: 40}} />
+        )
+    }
 
-    return <img src={require('../../../assets/result/miss.png')} style={{width: 40}} />
+  //  return <img src={require('../../../assets/result/miss.png')} style={{width: 40}} />
 }
 
 const RenderDelete = () =>{

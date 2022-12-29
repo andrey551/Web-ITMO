@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create ( {
-    baseURL : "http://localhost:8080/fuck-1.0-SNAPSHOT/api/point",
+    // baseURL: 'http://localhost:8080/fuck-1.0-SNAPSHOT/api/point',
+    baseURL : "http://127.0.0.1:23280/archive/api/point",
     headers:{
         "content-type": "application/json",
     }
@@ -28,7 +29,7 @@ const pointAPI = {
     },
 
     async clearPoint(token) {
-        return axiosInstance.delete('deletePoint', {
+        return axiosInstance.post('deletePoint', {
         })
     }
 }

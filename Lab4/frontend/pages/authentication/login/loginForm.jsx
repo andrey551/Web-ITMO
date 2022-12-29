@@ -2,16 +2,32 @@ import { useState, useEffect } from 'react';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Divider, TextField, Box, Typography, Button, Link } from '@mui/material';
-import { login } from "../../../redux/modules/auth"
+import { login, register } from "../../../redux/modules/auth"
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isRegister, setIsRegister] = useState(false)
 
     const dispath = useDispatch()
     
-    const handleSubmit = () => {
+    const handleLoginSubmit = () => {
         dispath(login(username, password))
+    }
+
+    const handleRegisterSubmit = () => {
+        dispath(register(username, password))
+    }
+
+    const setRegister = (e) =>{
+
+        if(e.target.checked === true) {
+            setIsRegister(true);
+        } else {
+            setIsRegister(false);
+        }
     }
     const [formWidth, setFormWidth] = useState(600);
     let resizeWindow = () => {
@@ -30,7 +46,7 @@ const LoginForm = () => {
         <div>
         <Box sx={{marginTop: 20, width: formWidth, backgroundColor:'rgba(218, 34, 55, 0.16)', borderRadius: 10}}>
             <Typography sx={{height: 80, textAlign:"center"}}>
-                <h1>Login to D.U.M.B system</h1>
+                {isRegister === true ? <h1>Register to D.U.M.B system</h1> :<h1>Login to D.U.M.B system</h1>}
             </Typography>
             <Divider/>
             <Box sx={{ margin: 10}}>
@@ -60,13 +76,26 @@ const LoginForm = () => {
                     />
                 </div>
                 <div style={{margin: 10}}>
-                    <Button variant="outlined" onClick={handleSubmit}>Submit</Button>
+                    {isRegister  === true? 
+                    <Button variant="outlined" onClick={handleRegisterSubmit}>Submit</Button> :
+                    <Button variant="outlined" onClick={handleLoginSubmit}>Submit</Button>}
                 </div>
-                <div>
-                    <Link href="#" underline="none" sx={{display: 'flex', justifyContent:'flex-end', paddingBottom: 3}}>
+                {/* {isRegister === false ? <div>
+                    <Link href="#" 
+                    underline="none" 
+                    sx={{display: 'flex', 
+                    justifyContent:'flex-end', 
+                    paddingBottom: 3,
+                    onClick:{setRegister}}}>
                     {'Sign up now'}
                     </Link>
-                </div>
+                </div> : <div style={{paddingBottom: 3}}/>} */}
+                <FormControlLabel
+                    control={
+                        <Switch onChange={setRegister} name="Register" />
+                    }
+                    label="Register"
+                    />
             </Box>
         </Box>
         </div>

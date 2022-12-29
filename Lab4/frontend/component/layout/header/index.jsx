@@ -17,7 +17,7 @@ const Header = () => {
       }, [windowWidth]);
     return(
         <>
-        <div style={{ width:windowWidth, padding: 5, backgroundColor:'rgba(11, 138, 145, 0.8)', position: 'fixed', backdropFilter: "blur(2px)", zIndex: 999}}>
+        <div style={{ width:windowWidth, padding: 5, backgroundColor:'rgba(11, 138, 145, 0.8)', position: 'fixed', backdropFilter: "blur(2px)"}}>
                 <Logo/>
                 {windowWidth > 737 ? <Info/> : <div/>}
         </div>

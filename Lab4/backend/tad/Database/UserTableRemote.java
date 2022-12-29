@@ -9,7 +9,7 @@ import jakarta.persistence.EntityManager;
 public interface UserTableRemote {
     User checkUser(RawUser rawUser);
     User addUser(RawUser rawUser);
-    boolean checkToken(String token);
+    Long checkToken(String token);
     EntityManager getManager();
 
     void begin();

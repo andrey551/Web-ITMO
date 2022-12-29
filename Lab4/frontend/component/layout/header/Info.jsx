@@ -8,14 +8,14 @@ const Info = () => {
 
     return (
         <>
-        <div style={{float:'right', marginRight: 50}}>
+        <div style={{float:'right', marginRight: 50, zIndex: 4}}>
             <OverlayTrigger
             trigger="click"
             key={placement}
             placement={placement}
             overlay={
                 <Popover id={`popover-positioned-${placement}`}>
-                <Popover.Body>
+                <Popover.Body sx={{zIndex: 5}}>
                     <div style={{backgroundColor:'rgba(202, 210, 210, 0.8)', borderRadius: 10}}>
                         <div style={{padding: 5}}>
                             <div>

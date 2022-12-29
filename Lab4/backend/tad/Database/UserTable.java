@@ -5,7 +5,6 @@ import Model.RawUser;
 import Model.User;
 import Utils.passwordHasher;
 import jakarta.ejb.Stateful;
-import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -49,13 +48,13 @@ public class UserTable implements UserTableRemote{
     }
 
     @Override
-    public boolean checkToken(String token) {
+    public Long checkToken(String token) {
         setUserList();
         for(User user : userList) {
             if(user.getToken().equals(token))
-                return true;
+                return user.getId();
         }
-        return false;
+        return -1L;
     }
 
     @Override

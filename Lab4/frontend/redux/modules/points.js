@@ -7,9 +7,11 @@ const SELECT_X = 'SELECT_X'
 const SELECT_R = 'SELECT_R'
 const CHANGE_Y = 'CHANGE_Y'
 const CLEAR_CURRENT = 'CLEAR_CURRENT'
-
+const R_VALUES_SET = [ 1, 2, 3, 4, 5]
+const X_VALUES_SET = [ -3, -2, -1, 0, 1, 2, 3, 4, 5]
+const  Y_MIN = -5
+const Y_MAX =  5
 const initialState = {
-    rValues: [-3, -2, -1, 0, 1, 2, 3, 4, 5],
     rCurrent: {
         minusThree: false,
         minusTwo: false,
@@ -21,10 +23,7 @@ const initialState = {
         four: false,
         five: false,
       },
-    xValues: [-3, -2, -1, 0, 1, 2, 3, 4, 5],
     xCurrent: undefined,
-    yMin: -5,
-    yMax: 5,
     yCurrent: undefined
 }
 
@@ -85,27 +84,31 @@ export function clearCurrent() {
 
 export const checkPoint = () => (dispatch, getState) =>{
     const isvalid = checkIsValid(getState().points.rCurrent)
-
-    if(isvalid != -1){
-        pointAPI.checkPoint(
-            getState().points.xCurrent,
-            getState().points.yCurrent,
-            isvalid,
-            JSON.parse(localStorage.getItem('tad')).jwt)
-            .then (response => {
-                if(response.status == 200) {
-                    dispatch(addPoint(response.data))
-                } else {
-                    alert(`Unexpected response ${response.status} from server`)
-                }
-            })
-            .catch (err => {
-                if(err.response.status == 401) {
-                    dispatch(logout())
-                } else {
-                    alert(`Unexpected response ${err.response.status} from server`)
-                }
-            })
+    if(R_VALUES_SET.includes(isvalid)){
+        console.log(getState().points.xCurrent, Math.abs( getState().points.yCurrent))
+        if(X_VALUES_SET.includes(getState().points.xCurrent) && Math.abs( getState().points.yCurrent) <= Y_MAX ) {
+            pointAPI.checkPoint(
+                getState().points.xCurrent,
+                getState().points.yCurrent,
+                isvalid,
+                JSON.parse(localStorage.getItem('tad')).jwt)
+                .then (response => {
+                    if(response.status == 200) {
+                        dispatch(addPoint(response.data))
+                    } else {
+                        alert(`Unexpected response ${response.status} from server`)
+                    }
+                })
+                .catch (err => {
+                    if(err.response.status == 401) {
+                        dispatch(logout())
+                    } else {
+                        alert(`Unexpected response ${err.response.status} from server`)
+                    }
+                })
+            } else {
+                alert("Invalid coordinate")
+            }
     }else{
         alert("Invalid R")
     }

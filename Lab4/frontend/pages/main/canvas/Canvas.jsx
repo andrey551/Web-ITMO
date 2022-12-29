@@ -77,11 +77,37 @@ const Canvas = (props) => {
         }else if(result === "Hit"){
             ctx.fillStyle = 'rgba(0, 255, 0, 1)';
         }else if (result === "Miss"){
-            ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+            ctx.fillStyle = 'rgba(0, 0, 255, 1)';
         }
+
         ctx.arc(X_CENTER + xCurrent * 2 * LINE_LENGTH, Y_CENTER - yCurrent * 2 * LINE_LENGTH, 3, 0, 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
+    }
+
+    function setListPoint(listPoint) {
+        const ctx = canvas.current.getContext('2d');
+        let RNumber = checkIsValid(R)
+        console.log(RNumber)
+        if(RNumber != -1) {
+            listPoint.forEach(point => {
+                if(parseInt(point.r) == RNumber) {
+                    ctx.beginPath();
+                    if(!point.result){
+                    ctx.fillStyle = 'rgba(223, 0, 0, 0.81)';
+                    }else if(point.result === "Hit"){
+                        ctx.fillStyle = 'rgba(0, 255, 0, 1)';
+                    }else if (point.result === "Miss"){
+                        ctx.fillStyle = 'rgba(0, 0, 255, 1)';
+                    }
+                    
+                    ctx.arc(X_CENTER + point.x * 2 * LINE_LENGTH, Y_CENTER - point.y * 2 * LINE_LENGTH, 3, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            });
+        }
+
     }
 
 
@@ -97,15 +123,22 @@ const Canvas = (props) => {
         init()
         drawArea()
         setPointFixed(xCurrent, yCurrent)
-    }, [xCurrent, yCurrent, rCurrent])
+    }, [xCurrent, yCurrent])
+
+    useEffect(() =>{
+        init()
+        drawArea()
+        setListPoint(points)
+    },[rCurrent, points])
+
 
     useEffect(() => {
         if(points.length){
             init()
             drawArea()
-            const {x: xPoint, y: yPoint, result: resultPoint} = points[points.length - 1]
-
-            setPointFixed(parseFloat(xPoint), parseFloat(yPoint), resultPoint)
+            // const {x: xPoint, y: yPoint, result: resultPoint} = points[points.length - 1]
+            // setPointFixed(parseFloat(xPoint), parseFloat(yPoint), resultPoint)
+            setListPoint(points)
         }
 
     }, [points])

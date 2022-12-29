@@ -22,11 +22,15 @@ public class Point implements Serializable {
     @Column(name="result")
     private String result;
 
-    public Point( String x, String y, String r) {
+    @Column(name="owner_id")
+    private Long owner_id;
+
+    public Point( String x, String y, String r, Long userId) {
         this.x = x;
         this.y = y;
         this.r = r;
         this.result = checkHit();
+        this.owner_id = userId;
     }
 
     public Point() {
@@ -105,6 +109,14 @@ public class Point implements Serializable {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public Long getOwner_id() {
+        return owner_id;
+    }
+
+    public void setOwner_id(Long owner_id) {
+        this.owner_id = owner_id;
     }
 
     public String getX() {

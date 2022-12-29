@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { useDispatch} from 'react-redux';
 import Header from '../../component/layout/header'
 import { logout } from '../../redux/modules/auth';
@@ -7,6 +7,7 @@ import Canvas from './canvas/Canvas';
 import Form from './form';
 import ResultTable from './table';
 import {useEffect, useState} from "react"
+import { clearPoint } from '../../redux/modules/points';
 
 const Mainpage = () => {
     const [windowWidth, setWindowWidthWidth] = useState(window.innerWidth);
@@ -22,6 +23,10 @@ const Mainpage = () => {
     const dispatch = useDispatch();
     const Logout = () =>{
         dispatch(logout());
+    }
+
+    const ClearTable = () => {
+        dispatch(clearPoint())
     }
     return (
         <>
@@ -39,6 +44,7 @@ const Mainpage = () => {
             </div>
             <div style={{width: '50%'}}>
                 <div style={{marginLeft: 120}}>
+                <div style={{textAlign:"left"}}><Button  onClick={ClearTable} variant="contained">Reset Table</Button></div>
                 <ResultTable/>
                 </div>
                 <div>
@@ -55,6 +61,7 @@ const Mainpage = () => {
                         <Form/>
                     </div>
                     <div style={{marginLeft: 10}}>
+                    <div style={{textAlign:"left"}}><Button  onClick={ClearTable} variant="contained">Reset Table</Button></div>
                         <ResultTable/>
                     </div>
                 <div>

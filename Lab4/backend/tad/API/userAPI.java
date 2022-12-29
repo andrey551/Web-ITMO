@@ -35,7 +35,7 @@ public class userAPI {
     @Path("/checkToken")
     public Response verify(String jwtString) {
         userTableRemote.checkToken(jwtString);
-        if(!userTableRemote.checkToken(jwtString))
+        if(userTableRemote.checkToken(jwtString) == -1)
             return Response.status(400).entity("Session timeout!").build();
         return Response.status(200).entity(JSONBuilder.wrapTokenByJson(jwtString)).build();
     }

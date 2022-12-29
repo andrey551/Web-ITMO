@@ -10,8 +10,9 @@ import java.util.List;
 
 @Local
 public interface PointTableRemote {
-    public Point addPoint(RawPoint rawPoint);
-    List<Point> getListPointFromTable();
+    public Point addPoint(RawPoint rawPoint, Long userId);
+    List<Point> getListPointFromTable(Long userId);
+    void deleteUserPoints(Long id);
 
     EntityManagerFactory getFactory();
 
