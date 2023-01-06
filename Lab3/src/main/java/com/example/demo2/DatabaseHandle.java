@@ -12,8 +12,8 @@ public class DatabaseHandle {
     private final String JDBC_DRIVER = "org.postgresql.Driver";
 
     private final String dbURL = "jdbc:postgresql://pg:5432/studs";
-    private final String dbUsername = "s336186";
-    private final String dbPassword = "6yIMLAKp5Qq7MPqa";
+    private final String dbUsername = "";
+    private final String dbPassword = "";
     private Connection connection;
 
     public DatabaseHandle() {
