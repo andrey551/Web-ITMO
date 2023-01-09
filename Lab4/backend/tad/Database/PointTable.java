@@ -8,7 +8,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
-
+// wasn't use correct case of EJB. should be Singleton,when we have only 1 container
 @Stateful
 public class PointTable implements PointTableRemote{
 
